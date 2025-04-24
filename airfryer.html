@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wielkanocne Życzenia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+        .container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+        }
+        .easter-image {
+            width: 80%;
+            max-width: 800px;
+            height: auto;
+            margin-top: 50px;
+        }
+        .clock {
+            font-size: 2.5em;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #4a90e2;
+        }
+        .flowers {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .flower {
+            position: absolute;
+            top: -50px;
+            animation: fall 5s infinite;
+            font-size: 25px;
+            color: pink;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+        .wish {
+            position: absolute;
+            bottom: 50px;
+            width: 100%;
+            font-size: 2em;
+            color: #ff6347;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Obrazek wielkanocny -->
+        <img src="https://via.placeholder.com/800x400.png?text=Obrazek+Wielkanocny" alt="Wielkanocne Obrazek" class="easter-image">
+
+        <!-- Zegar -->
+        <div class="clock" id="clock"></div>
+
+        <!-- Spadające kwiaty -->
+        <div class="flowers">
+            <div class="flower" style="left: 10%;">🌸</div>
+            <div class="flower" style="left: 30%;">🌼</div>
+            <div class="flower" style="left: 50%;">💐</div>
+            <div class="flower" style="left: 70%;">🌺</div>
+            <div class="flower" style="left: 90%;">🌻</div>
+        </div>
+
+        <!-- Życzenia wielkanocne -->
+        <div class="wish">Wesołych Świąt Wielkanocnych!</div>
+    </div>
+
+    <script>
+        // Funkcja do wyświetlania zegara
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const time = `${hours}:${minutes}:${seconds}`;
+            document.getElementById("clock").textContent = time;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();  // Uruchomienie zegara od razu po załadowaniu strony
+    </script>
+
+</body>
+</html>
